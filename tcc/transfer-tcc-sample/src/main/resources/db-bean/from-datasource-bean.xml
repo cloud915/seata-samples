@@ -5,8 +5,22 @@
        default-autowire="byName">
 
     <!-- 转出账户数据源配置 -->
-
     <bean id="fromAccountDataSource"  class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName">
+            <value>com.mysql.jdbc.Driver</value>
+        </property>
+        <property name="url">
+            <value>jdbc:mysql://47.105.168.48:3306/seata_samples</value>
+        </property>
+        <property name="username">
+            <value>seataUser</value>
+        </property>
+        <property name="password">
+            <value>pwd123</value>
+        </property>
+    </bean>
+
+    <!--<bean id="fromAccountDataSource"  class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName">
             <value>org.h2.Driver</value>
         </property>
@@ -19,7 +33,7 @@
         <property name="password">
             <value></value>
         </property>
-    </bean>
+    </bean>-->
 
     <bean id="fromDsTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="fromAccountDataSource" />

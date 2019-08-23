@@ -22,6 +22,7 @@ public class BusinessController {
     @RequestMapping("/purchase/commit")
     public Boolean purchaseCommit(HttpServletRequest request) {
         businessService.purchase("1001", "2001", 1);
+        // businessService.purchase("1002", "2001", 1); //test rollback
         return true;
     }
 
